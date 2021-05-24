@@ -17,6 +17,12 @@
       "day": "Friday",
       "reminder": false,
       "id": 4
+    },
+    {
+      "text": "my second task",
+      "day": "Monday",
+      "reminder": true,
+      "id": 5
     }
   ]
 }
