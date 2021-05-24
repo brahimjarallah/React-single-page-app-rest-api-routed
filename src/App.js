@@ -88,36 +88,38 @@ function App() {
   }
 
   return (
-    <Router>
-      <div className="container">
-        <Header
-          onAdd={() => setShowAddTask(!showAddTask)}
-          title={"Task Tracker"}
-          showAdd={showAddTask}
-        />
+    <Router basename="/React-single-page-app-rest-api-routed">
+      <switch>
+        <div className="container">
+          <Header
+            onAdd={() => setShowAddTask(!showAddTask)}
+            title={"Task Tracker"}
+            showAdd={showAddTask}
+          />
 
-        <Route
-          path="/"
-          exact
-          render={(props) => (
-            <>
-              {showAddTask && <AddTask onAdd={addTask} />} 
-              {/* <Tasks tasks={tasks} onDelete={deletTask} /> */}
-              {tasks.length > 0 ? (
-                <Tasks
-                  tasks={tasks}
-                  onDelete={deleteTask}
-                  onToggle={toggleReminder}
-                />
-              ) : (
-                "No tasks to show !!!"
-              )}
-            </>
-          )}
-        />
-        <Route path="/about" component={About} />
-        <Footer />
-      </div>
+          <Route
+            path="/"
+            exact
+            render={(props) => (
+              <>
+                {showAddTask && <AddTask onAdd={addTask} />}
+                {/* <Tasks tasks={tasks} onDelete={deletTask} /> */}
+                {tasks.length > 0 ? (
+                  <Tasks
+                    tasks={tasks}
+                    onDelete={deleteTask}
+                    onToggle={toggleReminder}
+                  />
+                ) : (
+                  "No tasks to show !!!"
+                )}
+              </>
+            )}
+          />
+          <Route path="/about" component={About} />
+          <Footer />
+        </div>
+      </switch>
     </Router>
   )
 }
